@@ -45,30 +45,32 @@
             \[\frac{d}{dx}(y\cdot I(x)) = I(x)\frac{dy}{dx} + y\frac{dI}{dx}\]
             <p>If we equate this to the left hand side of (*), we get: </p>
             \[
-            \begin{align}
+            \begin{aligned}
             &I(x)\frac{dy}{dx} + y\frac{dI}{dx} = I(x)\frac{dy}{dx} + I(x)P(x)y \\ \\
             &\implies y\frac{dI}{dx} = I(x)P(x)y \\ \\
             &\implies \frac{dI}{dx} = I(x)P(x)
-            \end{align}
+            \end{aligned}
             \]
             <p>This is a seperable differential equation in terms of \(I(x)\), which we can quickly solve as:</p>
             \[
-            \begin{align}
+            \begin{aligned}
             &\frac{dI}{dx} = I(x)P(x) \\ \\
             &\frac{dI}{I} = P(x)dx \\ \\
             &\int \frac{dI}{I} = \int P(x)dx \\ \\
             &\ln{I} = \int P(x)dx \\ \\
             &I(x) = e^{\int P(x)dx}
-            \end{align}
+            \end{aligned}
             \]
             <p>This allows us to find \(I(x)\) given a \(P(x)\), also while solving this integral you don't need to add a \(+C\), as it will be irrelevant. Using this \(I(x)\) in (*) will turn the left hand side into the product rule.</p>
             \[\frac{d}{dx}(y\cdot I(x)) = I(x)Q(x)\]
             <p>Now the solution is clear, simply integrate both sides and divide by \(I(x)\)</p>
-            \begin{align}
+            \[
+            \begin{aligned}
             &\frac{d}{dx}(y\cdot I(x)) = I(x)Q(x) \\ \\
             &y \cdot I(x) = \int I(x)Q(x)dx \\ \\
             &y = \frac{1}{I(x)} \int I(x)Q(x)dx
-            \end{align}
+            \end{aligned}
+            \]
             <p>Finally, we have reached the solution. We cannot omit the \(+C\) in this integral, in order to get a general solution.</p>
             
             <div style="margin-top: 40px;"></div>
@@ -80,33 +82,41 @@
             <details class = "solution">
                 <summary>Solution</summary>
                 <p>First let's divide both sides by \(cos{x}\).</p>
-                \begin{align}
+                \[
+                \begin{aligned}
                 &\frac{dy}{dx} + \frac{1}{\cos{x}}y = \frac{\cos^2{x}}{\cos{x}} + \frac{\sin{x}}{\cos{x}} \\ \\
                 &\frac{dy}{dx} + y\sec{x} = \cos{x} + \tan{x} \\ \\
-                \end{align}
+                \end{aligned}
+                \]
                 <p>Hence we can find the integration factor by:</p>
-                \begin{align}
+                \[
+                \begin{aligned}
                 &I(x) = e^{\int P(x)dx}\\ \\
                 &I(x) = e^{\ln{(\sec{x} + \tan{x})}} \\ \\
                 &I(x) = \sec{x} + \tan{x}
-                \end{align}
+                \end{aligned}
+                \]
                 <p>Now we can go back to the original differential equation.</p>
-                \begin{align}
+                \[
+                \begin{aligned}
                 &\frac{d}{dx}(y \cdot (\sec{x} + \tan{x})) = (\cos{x} + \tan{x})(\sec{x} + \tan{x}) \\ \\
                 &= \cos{x}\sec{x} + \cos{x}\tan{x} + \tan{x}\sec{x}+ \tan^2{x} \\ \\
                 &= 1 + \sin{x} + \tan{x}\sec{x} + \sec^2{x} - 1 \\ \\
                 &= \sin{x} + \tan{x}\sec{x} + \sec^2{x} \\ \\
                 &\implies y = \frac{1}{\sec{x} + \tan{x}}\int ( \sin{x} + \tan{x}\sec{x} + \sec^2{x})dx \\ \\
                 &= \frac{\sec{x} + \tan{x} - \cos{x} + C}{\sec{x} + \tan{x}}
-                \end{align}
+                \end{aligned}
+                \]
                 <p>We have found our general solution, now we can put in our initial conditions to get the final solution.</p>
-                \begin{align}
+                \[
+                \begin{aligned}
                 &x = \frac{\pi}{3}, \; y = 1 \\ \\
                 &\implies \sec{x} = 2, \; \cos{x} = \frac{1}{2}, \; \tan{x} = \sqrt{3} \\ \\
                 &\implies 1 = \frac{2+\sqrt{3} - \frac{1}{2} + C}{2 + \sqrt{3}} \\ \\
                 &\implies C = \frac{1}{2} \\ \\
                 &\implies y = \frac{\sec{x} + \tan{x} - \cos{x} + \frac{1}{2}}{\sec{x} + \tan{x}}
-                \end{align}
+                \end{aligned}
+                \]
 
 
             </details>
