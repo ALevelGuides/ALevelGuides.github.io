@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Integration Factors</title>
+  <title>Integrating Factors</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -25,7 +25,7 @@
 
   <main class="container">
     <section class="intro">
-      <h2>Integration Factors</h2>
+      <h2>Integrating Factors</h2>
         <div style = "text-align: left;">
 
             <p>Some differentials equations can be written in the form:</p>
@@ -33,13 +33,13 @@
             <p>These are called <em>seperable</em> differential equations and are easily solvable. You should have already learned seperable differential equations in A-Level Maths.</p>
             <p>Some first order differential equations are not solvable by seperation of variables. Here we will investigate how to solve differential equations in the form: </p>
             \[A(x)\frac{dy}{dx} + B(x)y = C(x)\]
-            <p>We will solve these by using <em>integration factors</em>.</p>
+            <p>We will solve these by using <em>integrating factors</em>.</p>
             <div style="margin-top: 40px;"></div>
             <p>First, we need to turn the coefficient of \(\frac{dy}{dx}\) as \(1\), we can do this by dividing by \(A(x)\)</p>
             \[\frac{dy}{dx} + \frac{B(x)}{A(x)}y = \frac{C(x)}{A(x)}\]
             <p>Notice since \(A(x)\), \(B(x)\) and \(C(x)\) are arbitrary functions, we can replace the fractions by other arbitrary functions which we shall name \(P\) and \(Q\):</p>
             \[\frac{dy}{dx} + P(x)y = Q(x)\]
-            <p>For reasons we will see later, we now multiply both sides by the function \(I(x)\), which will be our integration factor.</p>
+            <p>For reasons we will see later, we now multiply both sides by the function \(I(x)\), which will be our integrating factor.</p>
             \[I(x)\frac{dy}{dx} + I(x)P(x)y = I(x)Q(x) \quad (*)\]
             <p>Essentially, our goal is to make the left hand side look like the product rule, take a look at the following derivative to see what I mean:</p>
             \[\frac{d}{dx}(y\cdot I(x)) = I(x)\frac{dy}{dx} + y\frac{dI}{dx}\]
@@ -88,7 +88,7 @@
                 &\frac{dy}{dx} + y\sec{x} = \cos{x} + \tan{x} \\ \\
                 \end{aligned}
                 \]
-                <p>Hence we can find the integration factor by:</p>
+                <p>Hence we can find the integrating factor by:</p>
                 \[
                 \begin{aligned}
                 &I(x) = e^{\int P(x)dx}\\ \\
