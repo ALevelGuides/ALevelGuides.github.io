@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Integration Factors</title>
+  <link rel="stylesheet" href="../style.css" />
+      <script>
+    window.MathJax = {
+    loader: { load: ['[tex]/ams'] },
+    tex: { packages: { '[+]': ['ams'] } }
+        };
+    </script>
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>A-Level Further Mathematics</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../furthermaths.html">Back to Topics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Integration Factors</h2>
+        <div style = "text-align: left;">
+
+            <p>Some differentials equations can be written in the form:</p>
+            \[\frac{dy}{dx} = f(x)g(y)\]
+            <p>These are called <em>seperable</em> differential equations and are easily solvable. You should have already learned seperable differential equations in A-Level Maths.</p>
+            <p>Some first order differential equations are not solvable by seperation of variables. Here we will investigate how to solve differential equations in the form: </p>
+            \[A(x)\frac{dy}{dx} + B(x)y = C(x)\]
+            <p>We will solve these by using <em>integration factors</em>.</p>
+            <div style="margin-top: 40px;"></div>
+            <p>First, we need to turn the coefficient of \(\frac{dy}{dx}\) as \(1\), we can do this by dividing by \(A(x)\)</p>
+            \[\frac{dy}{dx} + \frac{B(x)}{A(x)}y = \frac{C(x)}{A(x)}\]
+            <p>Notice since \(A(x)\), \(B(x)\) and \(C(x)\) are arbitrary functions, we can replace the fractions by other arbitrary functions which we shall name \(P\) and \(Q\):</p>
+            \[\frac{dy}{dx} + P(x)y = Q(x)\]
+            <p>For reasons we will see later, we now multiply both sides by the function \(I(x)\), which will be our integration factor.</p>
+            \[I(x)\frac{dy}{dx} + I(x)P(x)y = I(x)Q(x) \quad (*)\]
+            <p>Essentially, our goal is to make the left hand side look like the product rule, take a look at the following derivative to see what I mean:</p>
+            \[\frac{d}{dx}(y\cdot I(x)) = I(x)\frac{dy}{dx} + y\frac{dI}{dx}\]
+            <p>If we equate this to the left hand side of (*), we get: </p>
+            \[
+            \begin{align}
+            &I(x)\frac{dy}{dx} + y\frac{dI}{dx} = I(x)\frac{dy}{dx} + I(x)P(x)y \\ \\
+            &\implies y\frac{dI}{dx} = I(x)P(x)y \\ \\
+            &\implies \frac{dI}{dx} = I(x)P(x)
+            \end{align}
+            \]
+            <p>This is a seperable differential equation in terms of \(I(x)\), which we can quickly solve as:</p>
+            \[
+            \begin{align}
+            &\frac{dI}{dx} = I(x)P(x) \\ \\
+            &\frac{dI}{I} = P(x)dx \\ \\
+            &\int \frac{dI}{I} = \int P(x)dx \\ \\
+            &\ln{I} = \int P(x)dx \\ \\
+            &I(x) = e^{\int P(x)dx}
+            \end{align}
+            \]
+            <p>This allows us to find \(I(x)\) given a \(P(x)\), also while solving this integral you don't need to add a \(+C\), as it will be irrelevant. Using this \(I(x)\) in (*) will turn the left hand side into the product rule.</p>
+            \[\frac{d}{dx}(y\cdot I(x)) = I(x)Q(x)\]
+            <p>Now the solution is clear, simply integrate both sides and divide by \(I(x)\)</p>
+            \begin{align}
+            &\frac{d}{dx}(y\cdot I(x)) = I(x)Q(x) \\ \\
+            &y \cdot I(x) = \int I(x)Q(x)dx \\ \\
+            &y = \frac{1}{I(x)} \int I(x)Q(x)dx
+            \end{align}
+            <p>Finally, we have reached the solution. We cannot omit the \(+C\) in this integral, in order to get a general solution.</p>
+            
+            <div style="margin-top: 40px;"></div>
+
+            <p>Here's an example problem:</p>
+            <p>Find the solution to the differential equation</p>
+            \[\cos{x}\frac{dy}{dx} + y = \cos^2{x} + \sin{x} \; \; \text{where} \; \; 0 \leq x < \frac{\pi}{2}\]
+            <p>given that \(y = 1\) when \(x = \frac{\pi}{3}\)</p>
+            <details class = "solution">
+                <summary>Solution</summary>
+                <p>First let's divide both sides by \(cos{x}\).</p>
+                \begin{align}
+                &\frac{dy}{dx} + \frac{1}{\cos{x}}y = \frac{\cos^2{x}}{\cos{x}} + \frac{\sin{x}}{\cos{x}} \\ \\
+                &\frac{dy}{dx} + y\sec{x} = \cos{x} + \tan{x} \\ \\
+                \end{align}
+                <p>Hence we can find the integration factor by:</p>
+                \begin{align}
+                &I(x) = e^{\int P(x)dx}\\ \\
+                &I(x) = e^{\ln{(\sec{x} + \tan{x})}} \\ \\
+                &I(x) = \sec{x} + \tan{x}
+                \end{align}
+                <p>Now we can go back to the original differential equation.</p>
+                \begin{align}
+                &\frac{d}{dx}(y \cdot (\sec{x} + \tan{x})) = (\cos{x} + \tan{x})(\sec{x} + \tan{x}) \\ \\
+                &= \cos{x}\sec{x} + \cos{x}\tan{x} + \tan{x}\sec{x}+ \tan^2{x} \\ \\
+                &= 1 + \sin{x} + \tan{x}\sec{x} + \sec^2{x} - 1 \\ \\
+                &= \sin{x} + \tan{x}\sec{x} + \sec^2{x} \\ \\
+                &\implies y = \frac{1}{\sec{x} + \tan{x}}\int ( \sin{x} + \tan{x}\sec{x} + \sec^2{x})dx \\ \\
+                &= \frac{\sec{x} + \tan{x} - \cos{x} + C}{\sec{x} + \tan{x}}
+                \end{align}
+                <p>We have found our general solution, now we can put in our initial conditions to get the final solution.</p>
+                \begin{align}
+                &x = \frac{\pi}{3}, \; y = 1 \\ \\
+                &\implies \sec{x} = 2, \; \cos{x} = \frac{1}{2}, \; \tan{x} = \sqrt{3} \\ \\
+                &\implies 1 = \frac{2+\sqrt{3} - \frac{1}{2} + C}{2 + \sqrt{3}} \\ \\
+                &\implies C = \frac{1}{2} \\ \\
+                &\implies y = \frac{\sec{x} + \tan{x} - \cos{x} + \frac{1}{2}}{\sec{x} + \tan{x}}
+                \end{align}
+
+
+            </details>
+
+        </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 A-Level Guide. Further Mathematics Section.</p>
+    </div>
+  </footer>
+</body>
+</html>

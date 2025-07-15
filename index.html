@@ -1,1 +1,51 @@
-Hello Worlc
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Level Study Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>A-Level Study Guide</h1>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Your Quick A-Level Guide</h2>
+      <p>Welcome to your central resource for A-Level revision and study guides. Choose a subject to get started.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card" onclick="goToSubject('maths.html')">
+        <h3>Mathematics</h3>
+        <span class="warning">Work in Progress</span>
+      </div>
+      <div class="card" onclick="goToSubject('furthermaths.html')">
+        <h3>Further Mathematics</h3>
+        <span class="warning">Work in Progress</span>
+      </div>
+      <div class="card" onclick="goToSubject('physics.html')">
+        <h3>Physics</h3>
+        <span class="warning">Work in Progress</span>
+      </div>
+      <div class="card" onclick="goToSubject('chemistry.html')">
+        <h3>Chemistry</h3>
+        <span class="warning">Work in Progress</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+      <p class="container">&copy; 2025 A-Level Guide. Built for learning.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
