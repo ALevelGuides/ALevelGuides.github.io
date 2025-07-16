@@ -74,10 +74,27 @@
           &\frac{x^3 + x - 1}{(x+1)(x-1)} = \frac{x(x+1)(x-1) + 2x-1}{(x+1)(x-1)} \\ \\
           &=x + \frac{2x-1}{(x+1)(x-1)} = x + \frac{A}{x+1} + \frac{B}{x-1} 
           \end{aligned}\]
+          <p><strong>Problem 1:</strong>Decompose the following into partial fractions</p>
+          \[\frac{12}{(2-x)(1-2x)^2}\]
+          <details class="solution">
+            <summary>Solution</summary>
+            <p>We can decompose in the form</p>
+            \[\frac{12}{(2-x)(1-2x)^2} = \frac{A}{2-x} + \frac{B}{1-2x} + \frac{C}{(1-2x)^2}\]
+            <p>Expanding, we get</p>
+            \[\begin{aligned}
+              &12 = A(1-2x)^2 + B(2-x)(1-2x) + C(2-x) \\ \\
+              &x = 2 \implies 12 = 9A \implies A = \frac{4}{3} \\ \\
+              &x = \frac{1}{2} \implies 12 = \frac{3C}{2} \implies C = 8 \\ \\
+              &x = 0 \implies 12 = A + 2B + 2C = \frac{4}{3} + 16 + 2B \implies B = -\frac{8}{3} \\ \\
+              &\frac{12}{(2-x)(1-2x)^2} = \frac{\frac{4}{3}}{2-x} + \frac{\frac{-8}{3}}{1-2x} + \frac{8}{(1-2x)^2}
+            \end{aligned}\]
+            <p>which is the expansion we wanted</p>
+          </details>
+
           <p>This basically covers all possible cases of partial fraction decomposition, but you still may ask <em>why</em> or <em>when</em> we would need to use it. It turns out that it is incredibly useful in several areas, such as integrals, telescoping series, binomial expansions and more.</p>
           <div style="margin-top: 40px;"></div>
           <p>Here are some example problems where partial fraction decomposition is useful.</p>
-          <p><strong>Problem 1:</strong>Find the antiderivative:</p>
+          <p><strong>Problem 2:</strong>Find the antiderivative:</p>
           \[\int \frac{4x+2}{(x^2+1)(x-1)}dx\]
           <details class = "solution">
             <summary>Solution</summary>
