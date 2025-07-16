@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partial Fraction Decomposition</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);">
+  </script>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>A-Level Mathematics</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../maths.html">Back to Topics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Partial Fraction Decomposition</h2>
+        <div style = "text-align: left;">
+          <p>Consider the following process:</p>
+          \[\begin{aligned}
+          &\frac{2}{2x-1} + \frac{1}{x+1} = \frac{2(x+1) + (2x-1)}{(2x-1)(x+1)} = \frac{4x+1}{(2x-1)(x+1)}
+          \end{aligned}\]
+          <p>It is easy to go from the left hand side to the right hand side by simple arithmetic. However going from the right to the left requires <em>partial fraction decomposition</em>. Here we will learn how to do this.</p>
+          <div style="margin-top: 40px;"></div>
+          <p>We can do this by <em>guessing</em> the decomposition with arbitrary constants \(A\) and \(B\).</p>
+          \[\frac{4x+1}{(2x-1)(x+1)} = \frac{A}{2x-1} + \frac{B}{x+1}\]
+          <p>Now we can multiply both sides by \((2x-1)(x+1)\) to get: </p>
+          \[4x+1 = A(x+1) + B(2x-1)\]
+          <p>Notice this is an identity, meaning it must hold for <em>all</em> values of \(x\), so we can strategically choose values of \(x\) that make the terms \(0\), to find the values of \(A\) and \(B\).</p>
+          \[\begin{aligned}
+          &x = -1 \implies -3 = -3B \implies B = 1 \\ \\
+          &x = \frac{1}{2} \implies 3 = \frac{3A}{2} \implies A = 2
+          \end{aligned}\]
+          <p>which gives us the decomposition we wanted.</p>
+          <p>However, things get more complicated if we have a quadratic or a higher degree term in the denominator. For example consider:</p>
+          \[\frac{4x+2}{(x^2 + 1)(x - 1)}\]
+          <p>While doing the decomposition, the numerator will be a polynomial of degree one less than the denominator, so the numerator of the term with the quadratic denominator will be a linear term.</p>
+          \[\frac{4x+2}{(x^2 + 1)(x - 1)} = \frac{Ax+B}{x^2 + 1} + \frac{C}{x-1}\]
+          <p>We can now do the same thing we did before, but the equation we get will be more complicated.</p>
+          \[4x+2 = (Ax+B)(x-1) + C(x^2 + 1) = Ax(x-1) + B(x-1) + C(x^2 + 1)\]
+          <p>We can find the values of the coefficients by putting in test values.</p>
+          \[\begin{aligned}
+          &x = 1 \implies 6 = 2C \implies C = 3 \\ \\
+          &x = 0 \implies 2 = -B + C = -B + 3 \implies B = 1 \\ \\
+          &x = 2 \implies 10 = 2A + B + 5C = 2A + 16 \implies A = -3
+          \end{aligned}\]
+          <p>which is the decomposition we wanted</p>
+          \[\frac{4x+2}{(x^2 + 1)(x - 1)} = \frac{-3x+1}{x^2 + 1} + \frac{3}{x-1}\]
+          <p>We can do something interesting when there is a power of a polynomial as one of the factors in the denominator. For example consider the following rational function:</p>
+          \[\frac{2x^2 + x - 1}{(x + 1)^2(x-2) }\]
+          <p>The \((x + 1)^2\) term is technically a quadratic, so we would need the term \(Ax+B\) in the numerator of its partial fraction.</p>
+          \[\frac{2x^2 + x - 1}{(x + 1)^2(x-2) }\ = \frac{Ax + B}{(x+1)^2} + \frac{C}{x-2}\]
+          <p>However, it's not too difficult to show that we can also decompose it in the way:</p>
+          \[\frac{2x^2 + x - 1}{(x + 1)^2(x-2) }\ = \frac{A}{x+1} +\frac{B}{(x+1)^2} + \frac{C}{x-2}\]
+          <p>Doing it this way is usually easier to solve. So essentially, when you have a power of a polynomial in a denominator, you'll have to write all the powers of the term up to it while decomposing. Here are a couple examples of decompositions in all cases:</p>
+          \[\begin{aligned}
+          &\frac{2x^3 + 3x^2 - 1}{(x+1)^3(x-2)} = \frac{A}{x+1} + \frac{B}{(x+1)^2} + \frac{C}{(x+1)^3} + \frac{D}{x-2} \\ \\
+          &\frac{2x - 1}{(x^2 + 2x - 1)^2(2x - 3)} = \frac{Ax+B}{x^2 +2x - 1} + \frac{Cx+D}{(x^2 + 2x - 1)^2} + \frac{E}{2x-3}
+          \end{aligned}\]
+          <p>Using high powers like this will make the question significantly more annoying, which is why you won't usually be asked to do a partial fraction decomposition with the degree of the denominator higher than 3, but it's still useful to know about.</p>
+          <p>Finally, another situation that may happen is when the degree of the numerator is higher than the degree of the denominator, in this case we have to perform polynomial division and then do the decomposition</p>
+          \[\begin{aligned}
+          &\frac{x^3 + x - 1}{(x+1)(x-1)} = \frac{x(x+1)(x-1) + 2x-1}{(x+1)(x-1)} \\ \\
+          &=x + \frac{2x-1}{(x+1)(x-1)} = x + \frac{A}{x+1} + \frac{B}{x-1} 
+          \end{aligned}\]
+          <p>This basically covers all possible cases of partial fraction decomposition, but you still may ask <em>why</em> or <em>when</em> we would need to use it. It turns out that it is incredibly useful in several areas, such as integrals, telescoping series, binomial expansions and more.</p>
+          <div style="margin-top: 40px;"></div>
+          <p>Here are some example problems where partial fraction decomposition is useful.</p>
+          <p><strong>Problem 1:</strong>Find the antiderivative:</p>
+          \[\int \frac{4x+2}{(x^2+1)(x-1)}dx\]
+          <details class = "solution">
+            <summary>Solution</summary>
+            <p>We can use the partial fraction decomposition we did before to write the integral as</p>
+            \[\int \frac{4x+2}{(x^2+1)(x-1)}dx= \int (\frac{-3x+1}{x^2 + 1} + \frac{3}{x-1})dx\]
+            <p>Now we can do some manipulation to simplify this integral</p>
+            \[\begin{aligned}
+              &\int (\frac{-3x+1}{x^2 + 1} + \frac{3}{x-1})dx = -3\int \frac{x}{1+x^2}dx + \int \frac{1}{1 + x^2}dx + 3\int \frac{1}{x-1}dx \\ \\
+              &= -\frac{3}{2} \int \frac{2x}{1+x^2}dx + \int \frac{1}{1 + x^2}dx + 3\int \frac{1}{x-1}dx \\ \\
+              &= -\frac{3}{2}\ln{|1+x^2|} + \tan^{-1}{x} + 3\ln{|x-1|} + C
+            \end{aligned}\]
+            <p>which is our solution. Note that this kind of integral will probably not be asked in an A-Level Maths exam, as the integral of \(\frac{1}{1+x^2}\) is not in the specification.</p>
+          </details>
+        </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 A-Level Guide. Further Mathematics Section.</p>
+    </div>
+  </footer>
+</body>
+</html>
