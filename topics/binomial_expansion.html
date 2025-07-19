@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Binomial Series</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);">
+  </script>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>A-Level Mathematics</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../maths.html">Back to Topics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Binomial Series</h2>
+        <div style = "text-align: left;">
+          <p>The binomial theorem tells us how to expand the powers of a binomial term,</p>
+          \[(x+y)^n = \binom{n}{0} x^0 y^n + \binom{n}{1} x^1 y^{n-1} +  \binom{n}{2} x^2 y^{n-2} + \ldots + \binom{n}{n}x^ny^{0}\]
+          <p>where \(\binom{n}{k}\) is the binomial coefficient defined by:</p>
+          \[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]
+          <p>In this topic we will mostly be dealing with cases where \(y = 1\), so when the sum is in the form:</p>
+          \[(1+x)^n = \binom{n}{0} x^0+ \binom{n}{1} x^1+  \binom{n}{2} x^2 + \ldots + \binom{n}{n}x^n\]
+          <p>Weirdly, we will see what this formula outputs when we plug in a value of n thats <em>not a positive integer</em>. Instead of producing a finite sum like above, doing this will produce an infinite series, called the <em>binomial series.</em></p>
+          <p>Before we begin however, we need to redefine the binomial coefficient, as currently we cannot plug in non positive integer values into it. Notice how we can expand the factorials as:</p>
+          \[\begin{aligned} 
+          &\binom{n}{k} = \frac{n!}{k!(n-k)!} \\ \\
+          &= \frac{n \cdot (n-1) \cdot (n-2) \cdots (n - k + 1) \cdot (n - k) \cdot (n-k-1) \cdots 1}{k!(n-k) \cdot (n-k-1) \cdots 1} \\ \\
+          &= \frac{n \cdot (n-1) \cdot (n-2) \cdots (n - k + 1)}{k!}
+          \end{aligned}\]
+          <p>So for example,</p>
+          \[\begin{aligned} 
+          &\binom{10}{2} = \frac{10\cdot9}{2!} = \frac{90}{2} = 45 \\ \\
+          &\binom{5}{3} = \frac{5\cdot4\cdot3}{3!} = \frac{60}{6} = 10
+          \end{aligned}\]
+          <p>meaning we just how to multiply the \(k\) consecutive values before and including \(n\), and then divide by \(k!\). This is useful because now we can plug in non positive integer values for \(n\), by simply doing the same thing.</p>
+          \[\begin{aligned} 
+          &\binom{-1}{2} = \frac{(-1)\cdot(-2)}{2!} = \frac{2}{2} = 1 \\ \\
+          &\binom{\frac{1}{2}}{3} = \frac{\frac{1}{2}\cdot(-\frac{1}{2})\cdot(-\frac{3}{2})}{3!} = \frac{\frac{3}{8}}{6} = \frac{1}{16}
+          \end{aligned}\]
+          <p>Notice, by this definition the binomial coefficient when \(n < k\) and \(n\) is an integer is \(0\), since there will be a single term in the numerator that's a \(0\) due to the consecutive differences.
+          However, if \(n\) isn't an integer, even if it is greater than \(k\), the binomial coefficient won't be \(0\).
+          </p>
+          \[\begin{aligned} 
+          &\binom{2}{3} = \frac{2\cdot1 \cdot 0}{3!} = 0 \\ \\
+          &\binom{\frac{1}{2}}{3} = \frac{\frac{1}{2}\cdot(-\frac{1}{2})\cdot(-\frac{3}{2})}{3!} = \frac{\frac{3}{8}}{6} = \frac{1}{16}
+          \end{aligned}\]
+          <p>This is the reason why our series expansion won't be finite, as there won't be any point after which the terms collapse to \(0\).</p>
+          <p>With this definition we can finally get our expansion</p>
+          \[(1+x)^n = 1 + nx + \frac{n(n-1)}{2}x^2 + \frac{n(n-1)(n-2)}{6}x^3 \cdots \]
+          <p>That being said, this is an infinite series, so there may be some values of \(x\) where the series won't converge. In this case, the condition for convergence is that</p>
+          \[-1 < x < 1\]
+          <p><strong>Problem 1:</strong> Write the binomial expansion of \((1+x)^\frac{1}{2}\) up to including the \(x^2\) term and find the range of values of \(x\) where the series converges.</p>
+          <details class = "solution">
+            <summary>Solution</summary>
+            <p>We can simply plug in \(\frac{1}{2}\) to \(n\) and we will get the expansion. This calculation involves a lot of rational numbers, so make sure to you use your calculator for it.</p>
+           \[\begin{aligned} 
+            &(1 + x)^\frac{1}{2} \approx 1 + \frac{1}{2}x + \frac{\frac{1}{2} \cdot (-\frac{1}{2})}{2}x^2 \\ \\
+            &= 1 + \frac{1}{2}x - \frac{1}{8}x^2
+          \end{aligned}\]
+          <p>The range of convergence is given by</p>
+          \[-1 < x < 1\]
+          </details>
+          <p><strong>Problem 2:</strong> Write the binomial expansion of \((1-2x)^{-1}\) up to including the \(x^2\) term and find the range of values of \(x\) where the series converges.</p>
+          <details class = "solution">
+            <summary>Solution</summary>
+            <p>We can simply plug in \(-1\) to \(n\) and we will get the expansion. This calculation involves a lot of rational numbers, so make sure to you use your calculator for it.</p>
+           \[\begin{aligned} 
+            &(1 - 2x)^{-1} \approx 1 + (-1)(-2x) + \frac{(-1) \cdot (-2)}{2}(-2x)^2 \\
+            &= 1 + 2x + 4x^2
+          \end{aligned}\]
+          <p>The range of convergence is given by</p>
+          \[\begin{aligned} 
+            &-1 < 2x < 1 \\ \\
+            &-\frac{1}{2} < x < \frac{1}{2} 
+          \end{aligned}\]
+          <p>Notice how you could have found this by the <em>geometric series</em> expansion aswell.</p>
+        </details>
+        <p>Consider the following expression</p>
+        \[(4 - 3x)^\frac{3}{2}\]
+        <p>We cannot expand this as we normally do as it is not in the form \((1+x)^n\), so we have to convert into it.</p>
+          \[\begin{aligned} 
+          &(4 - 3x)^\frac{3}{2} = \left(4\left(1 - \frac{3}{4}x\right)\right)^\frac{3}{2} = 4^\frac{3}{2}\left(1 - \frac{3}{4}x\right)^\frac{3}{2} = 8\left(1 - \frac{3}{4}x\right)^\frac{3}{2} \\ \\
+          &= 8\left[1 + \frac{3}{2} \cdot \left(-\frac{3}{4}x\right) + \frac{\frac{3}{2} \cdot \frac{1}{2}}{2} \cdot \left(-\frac{3}{4}x\right)^2 + \cdots\right] \\ \\
+          &=8 - 9x + \frac{27}{16}x^2 + \cdots
+          \end{aligned}\]
+        <p>and we can find the interval of convergence by</p>
+          \[\begin{aligned} 
+          & -1 < -\frac{3x}{4} < 1 \\ \\
+          & -\frac{4}{3} < x < \frac{4}{3}
+          \end{aligned}\]
+        <p>For annoying expansions like this, you can test the validity by putting in small values for x in both expressions. You can also draw the graphs of the two functions and see how much they match inside the interval of convergence.</p>
+          \[\begin{aligned} 
+          \left(4 - 3 \cdot 0.01\right)^\frac{3}{2} \approx 7.91016896153 \\ \\
+          8 - 9 \cdot 0.01 + \frac{27}{16} \cdot (0.01)^2 \approx 7.91016875
+          \end{aligned}\]
+        <p>Notice how the answers are the same to 7 digits, which is a good sign we've done the expansion correctly.</p>
+        <p><strong>Problem 3: This is a common problem you'll find in A-Level exams.</strong></p>
+        <p>i) Find constants \(A\), \(B\) and \(C\) such that the following is satisfied for all values of \(x\)</p>
+        \[\frac{12}{(2-x)(1-2x)^2} = \frac{A}{2-x} + \frac{B}{1-2x} + \frac{C}{(1-2x)^2}\]
+        <p><em>Note that this requires knowledge of <a href="partial_fractions.html">partial fraction decomposition</a></em></p>
+        <p>ii) Find the binomial expansion of \((2-x)^{-1}\) with increasing powers of \(x\) up to and including \(x^2\)</p>
+        <p>iii) Hence find the constants \(D\), \(E\) and \(F\) such that the following is approximately satisfied for small values of \(x\)</p>
+        \[\frac{12}{(2-x)(1-2x)^2} = D + Ex + Fx^2\]
+        <details class="solution">
+          <summary>Solution</summary>
+          <p>This is a common yet incredibly annoying problem, as we need to do a partial fraction decomposition and then do 3 binomial expansions and add them all up.</p>
+          <p>part i)</p>
+          <p>We can decompose in the form</p>
+            \[\frac{12}{(2-x)(1-2x)^2} = \frac{A}{2-x} + \frac{B}{1-2x} + \frac{C}{(1-2x)^2}\]
+            <p>Expanding, we get</p>
+            \[\begin{aligned}
+              &12 = A(1-2x)^2 + B(2-x)(1-2x) + C(2-x) \\ \\
+              &x = 2 \implies 12 = 9A \implies A = \frac{4}{3} \\ \\
+              &x = \frac{1}{2} \implies 12 = \frac{3C}{2} \implies C = 8 \\ \\
+              &x = 0 \implies 12 = A + 2B + 2C = \frac{4}{3} + 16 + 2B \implies B = -\frac{8}{3} \\ \\
+              &\frac{12}{(2-x)(1-2x)^2} = \frac{\frac{4}{3}}{2-x} + \frac{-\frac{8}{3}}{1-2x} + \frac{8}{(1-2x)^2}
+            \end{aligned}\]
+            <p>which is the expansion we wanted</p>
+            <p>part ii)</p>
+            \[\begin{aligned}
+              &(2 - x)^{-1} = 2^{-1} \cdot \left(1 - \frac{1}{2}x\right)^{-1} = \frac{1}{2}\left(1- \frac{1}{2}x\right)^{-1} \\ \\
+              &\approx \frac{1}{2}\left[1 + (-1)\left(-\frac{x}{2}\right) + \frac{(-1)(-2)}{2}\left(\frac{-x}{2}\right)^2\right] \\ \\
+              &= \frac{1}{2} + \frac{1}{4}x + \frac{1}{8}x^2
+            \end{aligned}\]
+          <p>part iii)</p>
+          <p>We need to find the binomial series of each partial fraction</p>
+          <p>Firstly</p>    
+          \[\begin{aligned} 
+              &\frac{\frac{4}{3}}{2-x} \approx \frac{4}{3}\left[\frac{1}{2} + \frac{1}{4}x + \frac{1}{8}x^2\right] = \frac{2}{3} + \frac{1}{3}x + \frac{1}{6}x^2 \\ \\
+              &\frac{-\frac{8}{3}}{1-2x} \approx -\frac{8}{3} \left[1 + (-1)(-2x) + \frac{(-1)(-2)}{2}(-2x)^2\right] = -\frac{8}{3} - \frac{16}{3}x - \frac{32}{3}x^2 \\ \\
+              &\frac{8}{(1-2x)^2} \approx 8\left[1 + (-2)(-2x) + \frac{(-2)(-3)}{2}(-2x)^2 \right] = 8 + 32x + 96x^2
+          \end{aligned}\]
+          <p>Adding them all up, we get</p>
+          \[\begin{aligned}
+          &\frac{12}{(2-x)(1-2x)^2}\approx \left(\frac{2}{3} - \frac{8}{3} + 8 \right) + \left(\frac{1}{3} - \frac{16}{3} + 32 \right)x + \left(\frac{1}{6} - \frac{32}{3} + 96 \right)x^2 \\ \\
+          & = 6 + 27x + \frac{171}{2}x^2
+          \end{aligned}\]
+          <p>which is our answer</p>
+          <p>To test our answer, we can plug in \(x = 0.01\) and compare</p>
+            \[\begin{aligned} 
+            &\frac{12}{(2-0.01)(1-2\cdot 0.01)^2}\approx 6.27879087231 \\ \\
+            &6 + 27 \cdot 0.01 + \frac{171}{2} \cdot 0.01^2 \approx 6.27855
+          \end{aligned}\]
+          <p>they agree to quite a lot of digits, which pretty much confirms our answer.</p>
+        </details>
+        </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 A-Level Guide. Further Mathematics Section.</p>
+    </div>
+  </footer>
+</body>
+</html>
